@@ -11,7 +11,7 @@ import UIKit
 
 class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var myImageView: UIImageView!
+    var newReport: Report = Report()
     
     @IBAction func openCameraButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
@@ -35,14 +35,25 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            myImageView.contentMode = .scaleToFill
-            myImageView.image = pickedImage
+            //myImageView.image = pickedImage
+            newReport.image = pickedImage
+            //newReport.imageView.contentMode = .scaleToFill
         }
         picker.dismiss(animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ReportBViewController {
+            let vc = segue.destination as? ReportBViewController
+            vc?.newReport = self.newReport
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("ReportViewController Loaded!", terminator: "\n")
+        print(getNewReport().message as Any, terminator: "\n")
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,4 +61,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
+    func getNewReport() -> Report {
+        return self.newReport
+    }
 }
