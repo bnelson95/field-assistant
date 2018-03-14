@@ -10,12 +10,12 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CD_Group" syncable="YES"/>
     </entity>
-    <entity name="Report" representedClassName=".CD_Report" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Report" representedClassName=".Report" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="542743020" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="group" attributeType="String" defaultValueString="Default Group" syncable="YES"/>
+        <attribute name="image" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="location" attributeType="String" defaultValueString="Default Location" syncable="YES"/>
+        <attribute name="message" attributeType="String" defaultValueString="This is the default message." syncable="YES"/>
     </entity>
     <elements>
         <element name="Report" positionX="-5526" positionY="-2043" width="128" height="118"/>

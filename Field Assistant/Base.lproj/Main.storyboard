@@ -341,7 +341,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kBJ-Yb-oVS">
                                 <rect key="frame" x="20" y="204" width="335" height="303"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -415,7 +415,10 @@
                         <barButtonItem key="backBarButtonItem" title="Send" id="iYl-hF-uqV"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="reportDateLabel" destination="tS1-XP-GcF" id="Z8M-fd-qx5"/>
+                        <outlet property="reportGroupLabel" destination="ny2-M8-gpb" id="jp2-XQ-Fi8"/>
                         <outlet property="reportImageView" destination="K1f-Td-qjV" id="Q5o-YC-uqr"/>
+                        <outlet property="reportLocationLabel" destination="KWt-TH-PMM" id="bsh-qq-4eO"/>
                         <outlet property="reportMessageView" destination="kBJ-Yb-oVS" id="7j9-lS-G69"/>
                     </connections>
                 </viewController>

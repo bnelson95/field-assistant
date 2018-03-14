@@ -11,7 +11,6 @@
 		25079EBB2034B103006DFC87 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25079EBA2034B103006DFC87 /* GroupsViewController.swift */; };
 		25079EBD2034B3A8006DFC87 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25079EBC2034B3A8006DFC87 /* ActivityViewController.swift */; };
 		25C4DC6C20598A340080C7D2 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25C4DC6A20598A340080C7D2 /* DataModel.xcdatamodeld */; };
-		25D2D7722047189B00C3ADEF /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2D7712047189B00C3ADEF /* Report.swift */; };
 		25D2D77620472D3200C3ADEF /* ReportBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2D77520472D3200C3ADEF /* ReportBViewController.swift */; };
 		25D2D77D20473BDB00C3ADEF /* ReportCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2D77C20473BDB00C3ADEF /* ReportCViewController.swift */; };
 		25D71CD3203471E900A97E77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D71CD2203471E900A97E77 /* AppDelegate.swift */; };
@@ -45,7 +44,6 @@
 		25079EBA2034B103006DFC87 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		25079EBC2034B3A8006DFC87 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		25C4DC6B20598A340080C7D2 /* FieldAssistant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FieldAssistant.xcdatamodel; sourceTree = "<group>"; };
-		25D2D7712047189B00C3ADEF /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		25D2D77520472D3200C3ADEF /* ReportBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBViewController.swift; sourceTree = "<group>"; };
 		25D2D77C20473BDB00C3ADEF /* ReportCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCViewController.swift; sourceTree = "<group>"; };
 		25D71CCF203471E900A97E77 /* Field Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Field Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +89,6 @@
 		25D2D77920473B8F00C3ADEF /* Report */ = {
 			isa = PBXGroup;
 			children = (
-				25D2D7712047189B00C3ADEF /* Report.swift */,
 				25079EB62034A792006DFC87 /* ReportViewController.swift */,
 				25D2D77520472D3200C3ADEF /* ReportBViewController.swift */,
 				25D2D77C20473BDB00C3ADEF /* ReportCViewController.swift */,
@@ -306,7 +303,6 @@
 			files = (
 				25079EBB2034B103006DFC87 /* GroupsViewController.swift in Sources */,
 				25D71CD5203471E900A97E77 /* ViewController.swift in Sources */,
-				25D2D7722047189B00C3ADEF /* Report.swift in Sources */,
 				25D71CD3203471E900A97E77 /* AppDelegate.swift in Sources */,
 				25C4DC6C20598A340080C7D2 /* DataModel.xcdatamodeld in Sources */,
 				25D2D77D20473BDB00C3ADEF /* ReportCViewController.swift in Sources */,

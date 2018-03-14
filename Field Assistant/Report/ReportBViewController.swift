@@ -22,22 +22,25 @@ class ReportBViewController: UIViewController {
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("ReportBViewController Loaded!", terminator: "\n")
         print(newReport?.message as Any, terminator: "\n")
         
+        //let image = UIImage(data: (newReport?.image)!)
+        
         let aspectRatioConstraint = NSLayoutConstraint(item: self.reportImageView as Any,
                                                        attribute: .height,
                                                        relatedBy: .equal,
                                                        toItem: self.reportImageView,
                                                        attribute: .width,
-                                                       multiplier: ((newReport?.image.size.height)! / (newReport?.image.size.width)!),
+                                                       multiplier: ((UIImage(data: (newReport?.image)!)?.size.height)! / (UIImage(data: (newReport?.image)!)?.size.width)!),
                                                        constant: 0)
         reportImageView?.addConstraint(aspectRatioConstraint)
         
-        reportImageView?.image = newReport?.image
+        reportImageView?.image = UIImage(data: (newReport?.image)!)
     }
     
     override func didReceiveMemoryWarning() {

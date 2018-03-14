@@ -11,7 +11,8 @@ import UIKit
 
 class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var newReport: Report = Report()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var newReport: Report
     
     @IBAction func openCameraButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
@@ -36,7 +37,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             //myImageView.image = pickedImage
-            newReport.image = pickedImage
+            newReport.image = UIImagePNGRepresentation(pickedImage)
             //newReport.imageView.contentMode = .scaleToFill
         }
         picker.dismiss(animated: true, completion: nil)
@@ -49,11 +50,16 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        newReport = Report(context: context)
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("ReportViewController Loaded!", terminator: "\n")
-        print(getNewReport().message as Any, terminator: "\n")
+        print(newReport.message as Any, terminator: "\n")
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,7 +67,4 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
-    func getNewReport() -> Report {
-        return self.newReport
-    }
 }
