@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import CoreLocation
 
-
 class Report {
     var id: Int
     var image: UIImage

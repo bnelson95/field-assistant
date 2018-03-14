@@ -18,6 +18,8 @@ class ReportCViewController: UIViewController {
     
     @IBAction func sendReport(_ sender: Any) {
         print("Sending Report!", terminator: "\n")
+        
+        
     }
     
     override func viewDidLoad() {
@@ -25,6 +27,15 @@ class ReportCViewController: UIViewController {
         
         print("ReportCViewController Loaded!", terminator: "\n")
         print(newReport?.message as Any, terminator: "\n")
+        
+        let aspectRatioConstraint = NSLayoutConstraint(item: self.reportImageView as Any,
+                                                       attribute: .height,
+                                                       relatedBy: .equal,
+                                                       toItem: self.reportImageView,
+                                                       attribute: .width,
+                                                       multiplier: ((newReport?.image.size.height)! / (newReport?.image.size.width)!),
+                                                       constant: 0)
+        reportImageView?.addConstraint(aspectRatioConstraint)
         
         reportImageView?.image = newReport?.image
         reportMessageView?.text = newReport?.message

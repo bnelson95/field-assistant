@@ -10,6 +10,7 @@
 		25079EB72034A792006DFC87 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25079EB62034A792006DFC87 /* ReportViewController.swift */; };
 		25079EBB2034B103006DFC87 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25079EBA2034B103006DFC87 /* GroupsViewController.swift */; };
 		25079EBD2034B3A8006DFC87 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25079EBC2034B3A8006DFC87 /* ActivityViewController.swift */; };
+		25C4DC6C20598A340080C7D2 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25C4DC6A20598A340080C7D2 /* DataModel.xcdatamodeld */; };
 		25D2D7722047189B00C3ADEF /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2D7712047189B00C3ADEF /* Report.swift */; };
 		25D2D77620472D3200C3ADEF /* ReportBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2D77520472D3200C3ADEF /* ReportBViewController.swift */; };
 		25D2D77D20473BDB00C3ADEF /* ReportCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2D77C20473BDB00C3ADEF /* ReportCViewController.swift */; };
@@ -43,6 +44,7 @@
 		25079EB62034A792006DFC87 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		25079EBA2034B103006DFC87 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		25079EBC2034B3A8006DFC87 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		25C4DC6B20598A340080C7D2 /* FieldAssistant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FieldAssistant.xcdatamodel; sourceTree = "<group>"; };
 		25D2D7712047189B00C3ADEF /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		25D2D77520472D3200C3ADEF /* ReportBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBViewController.swift; sourceTree = "<group>"; };
 		25D2D77C20473BDB00C3ADEF /* ReportCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		25D71CC6203471E900A97E77 = {
 			isa = PBXGroup;
 			children = (
+				25C4DC6A20598A340080C7D2 /* DataModel.xcdatamodeld */,
 				25D71CD1203471E900A97E77 /* Field Assistant */,
 				25D71CE6203471E900A97E77 /* Field AssistantTests */,
 				25D71CF1203471E900A97E77 /* Field AssistantUITests */,
@@ -305,6 +308,7 @@
 				25D71CD5203471E900A97E77 /* ViewController.swift in Sources */,
 				25D2D7722047189B00C3ADEF /* Report.swift in Sources */,
 				25D71CD3203471E900A97E77 /* AppDelegate.swift in Sources */,
+				25C4DC6C20598A340080C7D2 /* DataModel.xcdatamodeld in Sources */,
 				25D2D77D20473BDB00C3ADEF /* ReportCViewController.swift in Sources */,
 				25079EBD2034B3A8006DFC87 /* ActivityViewController.swift in Sources */,
 				25079EB72034A792006DFC87 /* ReportViewController.swift in Sources */,
@@ -608,6 +612,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		25C4DC6A20598A340080C7D2 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				25C4DC6B20598A340080C7D2 /* FieldAssistant.xcdatamodel */,
+			);
+			currentVersion = 25C4DC6B20598A340080C7D2 /* FieldAssistant.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 25D71CC7203471E900A97E77 /* Project object */;
 }
