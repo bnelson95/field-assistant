@@ -29,8 +29,6 @@ class ReportBViewController: UIViewController {
         print("ReportBViewController Loaded!", terminator: "\n")
         print(newReport?.message as Any, terminator: "\n")
         
-        //let image = UIImage(data: (newReport?.image)!)
-        
         let aspectRatioConstraint = NSLayoutConstraint(item: self.reportImageView as Any,
                                                        attribute: .height,
                                                        relatedBy: .equal,

@@ -14,40 +14,42 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var newReport: Report
     
-    @IBAction func openCameraButton(sender: AnyObject) {
+    
+    @IBAction func openCameraButton(_ sender: UIButton) {
+        print("Take Picture button pressed", terminator: "\n")
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-            imagePicker.allowsEditing = false
-            self.present(imagePicker, animated: true, completion: nil)
         }
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func photoFromLibrary(_ sender: Any) {
+    @IBAction func photoFromLibrary(_ sender: UIButton) {
+        print("Choose From Library button pressed", terminator: "\n")
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-            imagePicker.allowsEditing = false
-            self.present(imagePicker, animated: true, completion: nil)
         }
+        self.present(imagePicker, animated: true, completion: nil)
     }
+    
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            //myImageView.image = pickedImage
-            newReport.image = UIImagePNGRepresentation(pickedImage)
-            //newReport.imageView.contentMode = .scaleToFill
+            newReport.image = UIImageJPEGRepresentation(pickedImage,1.0)
         }
         picker.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "imageChosen", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is ReportBViewController {
-            let vc = segue.destination as? ReportBViewController
-            vc?.newReport = self.newReport
-        }
+        print("Segue Identifier: " + segue.identifier!, terminator: "\n")
+        let vc = segue.destination as? ReportBViewController
+        vc?.newReport = self.newReport
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import MessageUI
 
-class ReportCViewController: UIViewController {
+class ReportCViewController: UIViewController, MFMailComposeViewControllerDelegate
+{
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -24,11 +26,30 @@ class ReportCViewController: UIViewController {
     @IBAction func sendReport(_ sender: Any) {
         print("Sending Report!", terminator: "\n")
         
+        sendEmail()
+        
         do {
             try context.save()
         } catch {
             print("Error saving context \(error)")
         }
+    }
+    
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setSubject("Field Assistant")
+            mail.setToRecipients(["bnelson95@gmail.com"])
+            mail.setMessageBody("<p>Hello World!</p>", isHTML: true)
+            present(mail, animated: true)
+        } else {
+            print("ERROR in sendEmail()", terminator: "\n")
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
     
     override func viewDidLoad() {
