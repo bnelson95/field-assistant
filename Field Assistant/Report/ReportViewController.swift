@@ -48,7 +48,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("Segue Identifier: " + segue.identifier!, terminator: "\n")
-        let vc = segue.destination as? ReportBViewController
+        let vc = segue.destination as? ReportCViewController
         vc?.newReport = self.newReport
     }
     

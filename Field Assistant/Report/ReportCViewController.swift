@@ -12,14 +12,14 @@ import MessageUI
 import MapKit
 import CoreLocation
 
-class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMailComposeViewControllerDelegate
-{
+class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMailComposeViewControllerDelegate {
+    
+    // MARK:
     let locationManager = CLLocationManager()
-    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     var newReport: Report?
     
+    // MARK: Outlets
     @IBOutlet weak var reportImageView: UIImageView?
     @IBOutlet weak var reportDateLabel: UILabel?
     @IBOutlet weak var reportLocationLabel: UILabel?
@@ -27,6 +27,7 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
     @IBOutlet weak var reportGroupLabel: UITextField?
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint?
     
+    // MARK: Actions
     @IBAction func sendReport(_ sender: Any) {
         print("Sending Report!", terminator: "\n")
         
@@ -39,38 +40,13 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
         }
     }
     
-    func sendEmail() {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setSubject("Field Assistant")
-            mail.setToRecipients([(reportGroupLabel?.text)!])
-            mail.setMessageBody(String(format: "%@\n\nhttps://www.google.com/maps/search/?api=1&query=%@,%@\n\n%@",
-                                       (newReport?.date?.toString(dateFormat: "MMM dd, yyyy HH:mm:ss"))!,
-                                       (newReport?.latitude)!,
-                                       (newReport?.longitude)!,
-                                       (reportMessageView?.text)!),
-                                isHTML: false)
-            let imageData: NSData = UIImageJPEGRepresentation(UIImage(data: (newReport?.image)!)!, 1.0)! as NSData
-            mail.addAttachmentData(imageData as Data, mimeType: "image/jpeg", fileName: "imageName")
-            present(mail, animated: true)
-        } else {
-            print("ERROR in sendEmail()", terminator: "\n")
-        }
-    }
     
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("ReportCViewController Loaded!", terminator: "\n")
         print(newReport?.message as Any, terminator: "\n")
-        
-        
-        
         
         // Ask for Authorisation from the User.
         locationManager.requestAlwaysAuthorization()
@@ -99,43 +75,88 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
         
         reportImageView?.image = UIImage(data: (newReport?.image)!)
         reportDateLabel?.text = newReport?.date?.toString(dateFormat: "MMM dd, yyyy HH:mm:ss")
-        reportLocationLabel?.text = String(format: "%@\n%@", (newReport?.latitude)!, (newReport?.longitude)!)
-        reportMessageView?.text = newReport?.message
-    }
-    
-    func textFieldShouldReturn(textField: UITextView) -> Bool {
-        self.reportMessageView?.resignFirstResponder()
-        return true
-    }
-    
-    func keyboardWillShow(sender: NSNotification) {
-        let info = sender.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
-        bottomConstraint?.constant = keyboardSize
         
-        let duration: TimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+        reportMessageView?.text = ""
         
-        UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
-    }
-    
-    func keyboardWillHide(sender: NSNotification) {
-        let info = sender.userInfo!
-        let duration: TimeInterval = (info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        bottomConstraint?.constant = 20
-        
-        UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
+        reportMessageView?.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    
+    
+    // MARK: Email Functionality
+    
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setSubject("Field Assistant")
+            mail.setToRecipients([(reportGroupLabel?.text)!])
+            mail.setMessageBody(String(format: "%@\n\n%@\n\nhttps://www.google.com/maps/search/?api=1&query=%@,%@\n\n%@",
+                                       (newReport?.date?.toString(dateFormat: "MMM dd, yyyy HH:mm:ss"))!,
+                                       (reportLocationLabel?.text)!,
+                                       (newReport?.latitude)!,
+                                       (newReport?.longitude)!,
+                                       (reportMessageView?.text)!),
+                                isHTML: false)
+            let imageData: NSData = UIImageJPEGRepresentation(UIImage(data: (newReport?.image)!)!, 1.0)! as NSData
+            mail.addAttachmentData(imageData as Data, mimeType: "image/jpeg", fileName: "imageName")
+            present(mail, animated: true)
+        } else {
+            print("ERROR in sendEmail()", terminator: "\n")
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+    
+    
+    
+    // MARK: Keyboard Behavior
+    
+    func keyboardWillShow(sender: NSNotification) {
+        let info = sender.userInfo!
+        var keyboardSize = info[UIKeyboardFrameEndUserInfoKey] as! CGRect
+        keyboardSize = (self.reportMessageView?.convert(keyboardSize, from: nil))!
+        //self.reportMessageView?.contentInset.bottom = keyboardSize.size.height
+        bottomConstraint?.constant = keyboardSize.size.height
+        //self.reportMessageView?.scrollIndicatorInsets.bottom = keyboardSize.size.height
+    }
+    
+    
+    
+    // MARK: Location Services
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         newReport?.latitude = String(locValue.latitude)
         newReport?.longitude = String(locValue.longitude)
+        
+        let location = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        
+        fetchCountryAndCity(location: location) { city, state, country in
+            print("city:", city)
+            print("state:", state)
+            print("country:", country)
+            self.reportLocationLabel?.text = String(format: "%@, %@, %@", city, state, country)
+        }
     }
     
+    func fetchCountryAndCity(location: CLLocation, completion: @escaping (String, String, String) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            if let error = error {
+                print(error)
+            } else if let country = placemarks?.first?.country,
+                let state = placemarks?.first?.administrativeArea,
+                let city = placemarks?.first?.locality {
+                completion(city, state, country)
+            }
+        }
+    }
 }
 
 

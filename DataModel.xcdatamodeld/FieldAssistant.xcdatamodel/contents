@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CD_Group" representedClassName="CD_Group" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+    <entity name="Group" representedClassName="Group" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="CD_Person" representedClassName="CD_Person" syncable="YES" codeGenerationType="class">
+    <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CD_Group" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" syncable="YES"/>
     </entity>
     <entity name="Report" representedClassName=".Report" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="542743020" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="group" attributeType="String" defaultValueString="Default Group" syncable="YES"/>
         <attribute name="image" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <attribute name="latitude" attributeType="String" defaultValueString="Default Latitude" syncable="YES"/>
-        <attribute name="longitude" attributeType="String" defaultValueString="Default Longitude" syncable="YES"/>
+        <attribute name="latitude" attributeType="String" defaultValueString="NA" syncable="YES"/>
+        <attribute name="longitude" attributeType="String" defaultValueString="NA" syncable="YES"/>
         <attribute name="message" attributeType="String" defaultValueString="This is the default message." syncable="YES"/>
     </entity>
     <elements>
-        <element name="CD_Group" positionX="-5283" positionY="-1956" width="128" height="73"/>
-        <element name="CD_Person" positionX="-5157" positionY="-1845" width="128" height="103"/>
+        <element name="Group" positionX="-5283" positionY="-1956" width="128" height="60"/>
+        <element name="Person" positionX="-5157" positionY="-1845" width="128" height="90"/>
         <element name="Report" positionX="-5526" positionY="-2043" width="128" height="135"/>
     </elements>
 </model>
