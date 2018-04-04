@@ -360,22 +360,12 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kBJ-Yb-oVS">
-                                <rect key="frame" x="20" y="204" width="335" height="303"/>
+                                <rect key="frame" x="20" y="204" width="335" height="323"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ny2-M8-gpb">
-                                <rect key="frame" x="20" y="527" width="335" height="50"/>
-                                <color key="backgroundColor" red="0.92146831750869751" green="0.92162626981735229" blue="0.92145836353302002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="mMi-ui-QIr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location, YAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWt-TH-PMM">
                                 <rect key="frame" x="229.5" y="144" width="125.5" height="50"/>
                                 <color key="backgroundColor" red="0.92146831750000002" green="0.92162626979999995" blue="0.92145836349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -402,33 +392,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="bnelson95@gmail.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I4y-vg-ath">
+                                <rect key="frame" x="20" y="547" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ILs-Ut-FQY" firstAttribute="bottom" secondItem="PUR-CU-pmR" secondAttribute="bottom" constant="20" id="30q-ra-Ysi"/>
                             <constraint firstItem="KWt-TH-PMM" firstAttribute="height" secondItem="tS1-XP-GcF" secondAttribute="height" id="3A1-Vl-jrd"/>
                             <constraint firstItem="tS1-XP-GcF" firstAttribute="leading" secondItem="K1f-Td-qjV" secondAttribute="trailing" constant="10" id="4Ht-hL-wuN"/>
-                            <constraint firstItem="PUR-CU-pmR" firstAttribute="top" secondItem="ny2-M8-gpb" secondAttribute="bottom" constant="20" id="BfJ-F0-8ki"/>
                             <constraint firstItem="kBJ-Yb-oVS" firstAttribute="top" secondItem="KWt-TH-PMM" secondAttribute="bottom" constant="10" id="CLi-Gj-ZaI"/>
                             <constraint firstItem="KWt-TH-PMM" firstAttribute="top" secondItem="tS1-XP-GcF" secondAttribute="bottom" constant="10" id="D2K-zg-bMg"/>
                             <constraint firstItem="ILs-Ut-FQY" firstAttribute="trailing" secondItem="kBJ-Yb-oVS" secondAttribute="trailing" constant="20" id="EGi-vG-4Cv"/>
-                            <constraint firstItem="ny2-M8-gpb" firstAttribute="leading" secondItem="ILs-Ut-FQY" secondAttribute="leading" constant="20" id="GDE-HE-zKb"/>
                             <constraint firstItem="kBJ-Yb-oVS" firstAttribute="top" secondItem="K1f-Td-qjV" secondAttribute="bottom" constant="10" id="NDC-nT-QLk"/>
                             <constraint firstItem="KWt-TH-PMM" firstAttribute="leading" secondItem="K1f-Td-qjV" secondAttribute="trailing" constant="10" id="NiT-sj-3AK"/>
+                            <constraint firstItem="I4y-vg-ath" firstAttribute="leading" secondItem="ILs-Ut-FQY" secondAttribute="leading" constant="20" id="OTd-1L-vMD"/>
                             <constraint firstItem="kBJ-Yb-oVS" firstAttribute="leading" secondItem="ILs-Ut-FQY" secondAttribute="leading" constant="20" id="P3A-ru-Skh"/>
-                            <constraint firstItem="tS1-XP-GcF" firstAttribute="leading" secondItem="K1f-Td-qjV" secondAttribute="trailing" constant="10" id="PXL-4a-QEm"/>
                             <constraint firstItem="kBJ-Yb-oVS" firstAttribute="top" secondItem="KWt-TH-PMM" secondAttribute="bottom" constant="10" id="PnF-6p-SNP"/>
+                            <constraint firstItem="ILs-Ut-FQY" firstAttribute="trailing" secondItem="I4y-vg-ath" secondAttribute="trailing" constant="20" id="SsT-7t-DbH"/>
                             <constraint firstItem="ILs-Ut-FQY" firstAttribute="trailing" secondItem="tS1-XP-GcF" secondAttribute="trailing" constant="20" id="Vrb-gV-Rrc"/>
-                            <constraint firstItem="ny2-M8-gpb" firstAttribute="top" secondItem="kBJ-Yb-oVS" secondAttribute="bottom" constant="20" id="ZKk-QH-lZX"/>
                             <constraint firstItem="K1f-Td-qjV" firstAttribute="leading" secondItem="ILs-Ut-FQY" secondAttribute="leading" constant="20" id="btO-Ri-oFw"/>
                             <constraint firstItem="K1f-Td-qjV" firstAttribute="top" secondItem="ILs-Ut-FQY" secondAttribute="top" constant="20" id="hbp-27-amO"/>
                             <constraint firstItem="PUR-CU-pmR" firstAttribute="leading" secondItem="ILs-Ut-FQY" secondAttribute="leading" constant="20" id="hyA-EM-wT1"/>
-                            <constraint firstItem="ILs-Ut-FQY" firstAttribute="trailing" secondItem="ny2-M8-gpb" secondAttribute="trailing" constant="20" id="mTU-nk-Iao"/>
                             <constraint firstItem="ILs-Ut-FQY" firstAttribute="trailing" secondItem="KWt-TH-PMM" secondAttribute="trailing" constant="20" id="owf-Uu-Mud"/>
-                            <constraint firstItem="KWt-TH-PMM" firstAttribute="top" secondItem="tS1-XP-GcF" secondAttribute="bottom" constant="10" id="rdf-Ew-KUP"/>
+                            <constraint firstItem="PUR-CU-pmR" firstAttribute="top" secondItem="I4y-vg-ath" secondAttribute="bottom" constant="20" id="pve-uC-CCC"/>
+                            <constraint firstItem="I4y-vg-ath" firstAttribute="top" secondItem="kBJ-Yb-oVS" secondAttribute="bottom" constant="20" id="t2a-GB-sRe"/>
                             <constraint firstItem="ILs-Ut-FQY" firstAttribute="trailing" secondItem="PUR-CU-pmR" secondAttribute="trailing" constant="20" id="uIi-2l-Nyj"/>
                             <constraint firstItem="tS1-XP-GcF" firstAttribute="top" secondItem="ILs-Ut-FQY" secondAttribute="top" constant="20" id="xRn-ig-HoY"/>
-                            <constraint firstItem="ny2-M8-gpb" firstAttribute="top" secondItem="kBJ-Yb-oVS" secondAttribute="bottom" constant="20" id="zW4-Nf-zat"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ILs-Ut-FQY"/>
                     </view>
@@ -436,8 +429,9 @@
                         <barButtonItem key="backBarButtonItem" title="Send" id="iYl-hF-uqV"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomConstraint" destination="t2a-GB-sRe" id="KLr-Hl-gjl"/>
                         <outlet property="reportDateLabel" destination="tS1-XP-GcF" id="Z8M-fd-qx5"/>
-                        <outlet property="reportGroupLabel" destination="ny2-M8-gpb" id="jp2-XQ-Fi8"/>
+                        <outlet property="reportGroupLabel" destination="I4y-vg-ath" id="BUu-2x-1al"/>
                         <outlet property="reportImageView" destination="K1f-Td-qjV" id="Q5o-YC-uqr"/>
                         <outlet property="reportLocationLabel" destination="KWt-TH-PMM" id="bsh-qq-4eO"/>
                         <outlet property="reportMessageView" destination="kBJ-Yb-oVS" id="7j9-lS-G69"/>

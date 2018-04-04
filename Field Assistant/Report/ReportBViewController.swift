@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import MapKit
+import CoreLocation
 
-class ReportBViewController: UIViewController {
+class ReportBViewController: UIViewController, CLLocationManagerDelegate {
     
     var newReport: Report?
     
@@ -39,6 +41,7 @@ class ReportBViewController: UIViewController {
         reportImageView?.addConstraint(aspectRatioConstraint)
         
         reportImageView?.image = UIImage(data: (newReport?.image)!)
+        
     }
     
     override func didReceiveMemoryWarning() {

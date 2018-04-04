@@ -14,12 +14,13 @@
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="542743020" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="group" attributeType="String" defaultValueString="Default Group" syncable="YES"/>
         <attribute name="image" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <attribute name="location" attributeType="String" defaultValueString="Default Location" syncable="YES"/>
+        <attribute name="latitude" attributeType="String" defaultValueString="Default Latitude" syncable="YES"/>
+        <attribute name="longitude" attributeType="String" defaultValueString="Default Longitude" syncable="YES"/>
         <attribute name="message" attributeType="String" defaultValueString="This is the default message." syncable="YES"/>
     </entity>
     <elements>
-        <element name="Report" positionX="-5526" positionY="-2043" width="128" height="118"/>
         <element name="CD_Group" positionX="-5283" positionY="-1956" width="128" height="73"/>
         <element name="CD_Person" positionX="-5157" positionY="-1845" width="128" height="103"/>
+        <element name="Report" positionX="-5526" positionY="-2043" width="128" height="135"/>
     </elements>
 </model>
