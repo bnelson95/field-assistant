@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RnZ-DK-ZPy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,30 +26,18 @@
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Iv-Xc-ebI">
                                         <rect key="frame" x="0.0" y="0.0" width="57" height="30"/>
                                         <state key="normal" title="Report"/>
-                                        <connections>
-                                            <segue destination="Kqe-4h-hhd" kind="show" id="H75-YQ-cdt"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJV-cQ-Vfq">
                                         <rect key="frame" x="0.0" y="30" width="57" height="30"/>
                                         <state key="normal" title="Activity"/>
-                                        <connections>
-                                            <segue destination="2BX-cS-1sQ" kind="show" id="lmY-nL-rV4"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBP-cc-VtZ">
                                         <rect key="frame" x="0.0" y="60" width="57" height="30"/>
                                         <state key="normal" title="Groups"/>
-                                        <connections>
-                                            <segue destination="DSw-LL-2kl" kind="show" id="PP1-oy-0UY"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xp-eW-x0x">
                                         <rect key="frame" x="0.0" y="90" width="57" height="30"/>
                                         <state key="normal" title="Settings"/>
-                                        <connections>
-                                            <segue destination="gc1-ml-lYU" kind="show" id="Ja2-IG-ydF"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -68,7 +56,7 @@
         <!--Groups-->
         <scene sceneID="ZFf-Bq-XT7">
             <objects>
-                <viewController title="Groups" id="DSw-LL-2kl" customClass="GroupsViewController" sceneMemberID="viewController">
+                <viewController title="Groups" id="DSw-LL-2kl" customClass="GroupsViewController" customModule="Field_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QVA-C5-Bg7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,12 +103,19 @@
                         <viewLayoutGuide key="safeArea" id="ShI-dD-TTZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Groups" id="QHy-nG-UXE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6Hb-mO-eOY"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6Hb-mO-eOY">
+                            <connections>
+                                <action selector="addGroup" destination="DSw-LL-2kl" id="SF4-Ug-aw0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="cFc-hG-B9E" id="rCR-li-QQ5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Poc-zZ-oz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1404" y="975.56221889055485"/>
+            <point key="canvasLocation" x="1526" y="1918"/>
         </scene>
         <!--Activity-->
         <scene sceneID="9EM-b3-qe6">
@@ -177,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQz-H6-Zet" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2109.5999999999999" y="975.56221889055485"/>
+            <point key="canvasLocation" x="2212" y="122"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Cnc-Nj-ejR">
@@ -205,16 +200,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wDx-iA-4Ai"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="JGE-xh-1Fp"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Z0W-Qt-BDg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4UM-4P-hRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2876" y="975.56221889055485"/>
+            <point key="canvasLocation" x="-97" y="1917"/>
         </scene>
         <!--Report-->
         <scene sceneID="0L7-4M-we3">
             <objects>
-                <viewController id="Kqe-4h-hhd" customClass="ReportViewController" customModule="Field_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Report" id="Kqe-4h-hhd" customClass="ReportViewController" customModule="Field_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="poR-aU-lNw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,8 +244,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="thI-6f-PPy"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Report" id="qwh-MY-Xn5">
-                        <barButtonItem key="backBarButtonItem" title="Photo" id="Aez-1e-oBO"/>
+                    <navigationItem key="navigationItem" title="Field Assistant" leftItemsSupplementBackButton="YES" id="qwh-MY-Xn5">
+                        <barButtonItem key="backBarButtonItem" title="Report" id="Aez-1e-oBO"/>
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="ico-TU-fTs">
+                            <connections>
+                                <segue destination="gc1-ml-lYU" kind="show" identifier="showSettings" id="5sg-jn-zKe"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Groups" id="Tsj-ka-Y9O">
+                            <connections>
+                                <segue destination="DSw-LL-2kl" kind="show" identifier="showGroups" id="3yX-2G-ewu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="fCW-lt-bXS" kind="show" identifier="imageChosen" id="Nqj-uy-0d2"/>
@@ -259,61 +264,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GhQ-q1-3VF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="704.79999999999995" y="975.56221889055485"/>
-        </scene>
-        <!--Report-->
-        <scene sceneID="46C-VY-or3">
-            <objects>
-                <viewController id="win-8G-5iE" customClass="ReportBViewController" customModule="Field_Assistant" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bCO-vH-rru">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPu-py-H0Y">
-                                <rect key="frame" x="20" y="617" width="335" height="30"/>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Type"/>
-                                <connections>
-                                    <segue destination="fCW-lt-bXS" kind="show" id="ymr-f1-1K5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSY-8P-Vo3">
-                                <rect key="frame" x="20" y="567" width="335" height="30"/>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Dictate"/>
-                                <connections>
-                                    <segue destination="fCW-lt-bXS" kind="show" id="jYe-PG-1na"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Mj-25-x7y">
-                                <rect key="frame" x="20" y="40" width="335" height="507"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="BSY-8P-Vo3" firstAttribute="leading" secondItem="9oE-08-xX5" secondAttribute="leading" constant="20" id="5q2-f0-0jm"/>
-                            <constraint firstItem="9oE-08-xX5" firstAttribute="trailing" secondItem="aPu-py-H0Y" secondAttribute="trailing" constant="20" id="9aA-Uo-VRX"/>
-                            <constraint firstItem="aPu-py-H0Y" firstAttribute="top" secondItem="BSY-8P-Vo3" secondAttribute="bottom" constant="20" id="BQY-K4-a6d"/>
-                            <constraint firstItem="9oE-08-xX5" firstAttribute="bottom" secondItem="aPu-py-H0Y" secondAttribute="bottom" constant="20" id="DWQ-wP-9um"/>
-                            <constraint firstItem="7Mj-25-x7y" firstAttribute="top" secondItem="9oE-08-xX5" secondAttribute="top" constant="20" id="L0l-q1-mCa"/>
-                            <constraint firstItem="7Mj-25-x7y" firstAttribute="leading" secondItem="9oE-08-xX5" secondAttribute="leading" constant="20" id="L6L-2C-FDJ"/>
-                            <constraint firstItem="aPu-py-H0Y" firstAttribute="leading" secondItem="9oE-08-xX5" secondAttribute="leading" constant="20" id="N0J-Qw-BOG"/>
-                            <constraint firstItem="9oE-08-xX5" firstAttribute="trailing" secondItem="BSY-8P-Vo3" secondAttribute="trailing" constant="20" id="XAD-no-Bk0"/>
-                            <constraint firstItem="BSY-8P-Vo3" firstAttribute="top" secondItem="7Mj-25-x7y" secondAttribute="bottom" constant="20" id="b9g-UT-aUo"/>
-                            <constraint firstItem="aPu-py-H0Y" firstAttribute="height" secondItem="BSY-8P-Vo3" secondAttribute="height" id="icO-FL-Gtu"/>
-                            <constraint firstItem="9oE-08-xX5" firstAttribute="trailing" secondItem="7Mj-25-x7y" secondAttribute="trailing" constant="20" id="tei-XA-6lg"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="9oE-08-xX5"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Report" id="c1l-9M-hvI">
-                        <barButtonItem key="backBarButtonItem" title="Text" id="dX4-BW-KTW"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="reportImageView" destination="7Mj-25-x7y" id="UqU-2U-UJl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AL3-d8-WtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-306" y="1598"/>
         </scene>
         <!--Groups-->
         <scene sceneID="quK-sB-lg2">
@@ -368,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icS-nw-r5N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1404" y="1742.8785607196403"/>
+            <point key="canvasLocation" x="1526" y="2851"/>
         </scene>
         <!--Title-->
         <scene sceneID="rmt-Zs-eme">
@@ -416,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PaK-vW-wu5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2109.5999999999999" y="1742.8785607196403"/>
+            <point key="canvasLocation" x="2938" y="166"/>
         </scene>
         <!--Report-->
         <scene sceneID="x3l-Mn-VGw">
@@ -509,7 +459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B76-GW-0q3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="704.79999999999995" y="2464.3178410794603"/>
+            <point key="canvasLocation" x="705" y="1919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fDF-OH-Tu8">
@@ -522,7 +472,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gFR-gJ-re5"/>
+                        <segue destination="Kqe-4h-hhd" kind="relationship" relationship="rootViewController" id="bvs-lZ-IXm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jto-AP-PRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -530,7 +480,4 @@
             <point key="canvasLocation" x="511" y="122"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Nqj-uy-0d2"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -11,8 +11,7 @@ import UIKit
 
 class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var newReport: Report
+    var pickedImage = UIImage()
     
     
     @IBAction func openCameraButton(_ sender: UIButton) {
@@ -25,6 +24,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         self.present(imagePicker, animated: true, completion: nil)
     }
+    
     
     @IBAction func photoFromLibrary(_ sender: UIButton) {
         print("Choose From Library button pressed", terminator: "\n")
@@ -39,29 +39,23 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            newReport.image = UIImageJPEGRepresentation(pickedImage,1.0)
-        }
+        pickedImage = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         picker.dismiss(animated: true, completion: nil)
         performSegue(withIdentifier: "imageChosen", sender: self)
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("Segue Identifier: " + segue.identifier!, terminator: "\n")
         let vc = segue.destination as? ReportCViewController
-        vc?.newReport = self.newReport
+        vc?.pickedImage = self.pickedImage
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        newReport = Report(context: context)
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("ReportViewController Loaded!", terminator: "\n")
-        print(newReport.message as Any, terminator: "\n")
     }
     
     override func didReceiveMemoryWarning() {

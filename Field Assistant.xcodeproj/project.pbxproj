@@ -14,7 +14,6 @@
 		25145628207554560063494C /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25145627207554560063494C /* GroupsTableViewCell.swift */; };
 		25C4DC6C20598A340080C7D2 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25C4DC6A20598A340080C7D2 /* DataModel.xcdatamodeld */; };
 		25D1EA072061E48400121A15 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D1EA062061E48400121A15 /* ActivityTableViewCell.swift */; };
-		25D2D77620472D3200C3ADEF /* ReportBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2D77520472D3200C3ADEF /* ReportBViewController.swift */; };
 		25D2D77D20473BDB00C3ADEF /* ReportCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2D77C20473BDB00C3ADEF /* ReportCViewController.swift */; };
 		25D71CD3203471E900A97E77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D71CD2203471E900A97E77 /* AppDelegate.swift */; };
 		25D71CD5203471E900A97E77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D71CD4203471E900A97E77 /* ViewController.swift */; };
@@ -50,7 +49,6 @@
 		25145627207554560063494C /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		25C4DC6B20598A340080C7D2 /* FieldAssistant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FieldAssistant.xcdatamodel; sourceTree = "<group>"; };
 		25D1EA062061E48400121A15 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
-		25D2D77520472D3200C3ADEF /* ReportBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBViewController.swift; sourceTree = "<group>"; };
 		25D2D77C20473BDB00C3ADEF /* ReportCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCViewController.swift; sourceTree = "<group>"; };
 		25D71CCF203471E900A97E77 /* Field Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Field Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D71CD2203471E900A97E77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				25079EB62034A792006DFC87 /* ReportViewController.swift */,
-				25D2D77520472D3200C3ADEF /* ReportBViewController.swift */,
 				25D2D77C20473BDB00C3ADEF /* ReportCViewController.swift */,
 			);
 			path = Report;
@@ -318,7 +315,6 @@
 				25079EBD2034B3A8006DFC87 /* ActivityViewController.swift in Sources */,
 				25079EB72034A792006DFC87 /* ReportViewController.swift in Sources */,
 				25145628207554560063494C /* GroupsTableViewCell.swift in Sources */,
-				25D2D77620472D3200C3ADEF /* ReportBViewController.swift in Sources */,
 				25D1EA072061E48400121A15 /* ActivityTableViewCell.swift in Sources */,
 				251456262075523F0063494C /* GroupsContactsViewController.swift in Sources */,
 			);

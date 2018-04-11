@@ -15,9 +15,16 @@ import CoreLocation
 class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMailComposeViewControllerDelegate {
     
     // MARK:
+    var pickedImage = UIImage()
     let locationManager = CLLocationManager()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var newReport: Report?
+    
+    var reportImage: UIImage?
+    var reportDate: String?
+    var reportLocationStr: String?
+    var reportLocationLat: String?
+    var reportLocationLon: String?
+    var reportMessage: String?
     
     // MARK: Outlets
     @IBOutlet weak var reportImageView: UIImageView?
@@ -27,9 +34,12 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
     @IBOutlet weak var reportGroupLabel: UITextField?
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint?
     
+    
     // MARK: Actions
     @IBAction func sendReport(_ sender: Any) {
         print("Sending Report!", terminator: "\n")
+        
+        reportMessage = (reportMessageView?.text)!
         
         sendEmail()
         
@@ -41,43 +51,42 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("ReportCViewController Loaded!", terminator: "\n")
-        print(newReport?.message as Any, terminator: "\n")
-        
-        // Ask for Authorisation from the User.
-        locationManager.requestAlwaysAuthorization()
-        
-        // For use in foreground
-        locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
         
         
-        newReport?.date = Date()
-        
-        
+        // Image
+        reportImage = pickedImage
+        reportImageView?.image = reportImage
         let aspectRatioConstraint = NSLayoutConstraint(item: self.reportImageView as Any,
                                                        attribute: .height,
                                                        relatedBy: .equal,
                                                        toItem: self.reportImageView,
                                                        attribute: .width,
-                                                       multiplier: ((UIImage(data: (newReport?.image)!)?.size.height)! / (UIImage(data: (newReport?.image)!)?.size.width)!),
+                                                       multiplier: (reportImage?.size.height)! / (reportImage?.size.width)!,
                                                        constant: 0)
         reportImageView?.addConstraint(aspectRatioConstraint)
         
-        reportImageView?.image = UIImage(data: (newReport?.image)!)
-        reportDateLabel?.text = newReport?.date?.toString(dateFormat: "MMM dd, yyyy HH:mm:ss")
+        // Date
+        reportDate = getDateTime(date: Date())
+        reportDateLabel?.text = reportDate
         
+        print(reportDateLabel?.text, terminator: "\n")
+        
+        // Location
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+            //reportLocation is updated when locationManger is called
+        }
+        
+        // Message
         reportMessageView?.text = ""
-        
         reportMessageView?.becomeFirstResponder()
     }
     
@@ -95,14 +104,10 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
             mail.mailComposeDelegate = self
             mail.setSubject("Field Assistant")
             mail.setToRecipients([(reportGroupLabel?.text)!])
-            mail.setMessageBody(String(format: "%@\n\n%@\n\nhttps://www.google.com/maps/search/?api=1&query=%@,%@\n\n%@",
-                                       (newReport?.date?.toString(dateFormat: "MMM dd, yyyy HH:mm:ss"))!,
-                                       (reportLocationLabel?.text)!,
-                                       (newReport?.latitude)!,
-                                       (newReport?.longitude)!,
-                                       (reportMessageView?.text)!),
+            mail.setMessageBody(String(format: "%@\n%@\n\nhttps://www.google.com/maps/search/?api=1&query=%@,%@\n\n%@",
+                                       reportDate!, reportLocationStr!, reportLocationLat!, reportLocationLon!, reportMessage!),
                                 isHTML: false)
-            let imageData: NSData = UIImageJPEGRepresentation(UIImage(data: (newReport?.image)!)!, 1.0)! as NSData
+            let imageData: NSData = UIImageJPEGRepresentation(reportImage!, 1.0)! as NSData
             mail.addAttachmentData(imageData as Data, mimeType: "image/jpeg", fileName: "imageName")
             present(mail, animated: true)
         } else {
@@ -122,9 +127,7 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
         let info = sender.userInfo!
         var keyboardSize = info[UIKeyboardFrameEndUserInfoKey] as! CGRect
         keyboardSize = (self.reportMessageView?.convert(keyboardSize, from: nil))!
-        //self.reportMessageView?.contentInset.bottom = keyboardSize.size.height
         bottomConstraint?.constant = keyboardSize.size.height
-        //self.reportMessageView?.scrollIndicatorInsets.bottom = keyboardSize.size.height
     }
     
     
@@ -133,8 +136,8 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        newReport?.latitude = String(locValue.latitude)
-        newReport?.longitude = String(locValue.longitude)
+        reportLocationLat = String(locValue.latitude)
+        reportLocationLon = String(locValue.longitude)
         
         let location = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
         
@@ -142,7 +145,8 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
             print("city:", city)
             print("state:", state)
             print("country:", country)
-            self.reportLocationLabel?.text = String(format: "%@, %@, %@", city, state, country)
+            self.reportLocationStr = String(format: "%@, %@, %@", city, state, country)
+            self.reportLocationLabel?.text = self.reportLocationStr
         }
     }
     
@@ -157,15 +161,28 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
             }
         }
     }
+    
+    func getDateTime(date: Date) -> String {
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let year = calendar.component(.year, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        
+        return String(format: "%d-%d-%d %d:%d:%d", month, day, year, hour, minutes, seconds)
+    }
 }
 
 
 
 extension Date
 {
-    func toString( dateFormat format  : String ) -> String
+    func toString( dateFormat format: String ) -> String
     {
         let dateFormatter = DateFormatter()
+        //dateFormatter.locale = NSLocale(localeIdentifier: "us") as Locale!
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
