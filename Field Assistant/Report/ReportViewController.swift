@@ -11,10 +11,19 @@ import UIKit
 
 class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    //MARK: Fields
     var pickedImage = UIImage()
     
     
-    @IBAction func openCameraButton(_ sender: UIButton) {
+    
+    //MARK: Outlets
+    @IBOutlet weak var cameraStack: UIStackView!
+    @IBOutlet weak var libraryStack: UIStackView!
+    
+    
+    
+    //MARK: Actions
+    @objc func openCameraButton() {
         print("Take Picture button pressed", terminator: "\n")
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -22,11 +31,10 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera
         }
-        self.present(imagePicker, animated: true, completion: nil)
+        self.present(imagePicker, animated: false, completion: nil)
     }
     
-    
-    @IBAction func photoFromLibrary(_ sender: UIButton) {
+    @objc func photoFromLibrary() {
         print("Choose From Library button pressed", terminator: "\n")
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -34,13 +42,16 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         }
-        self.present(imagePicker, animated: true, completion: nil)
+        self.present(imagePicker, animated: false, completion: nil)
     }
     
     
+    
+    //MARK:
+    
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         pickedImage = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
-        picker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: false, completion: nil)
         performSegue(withIdentifier: "imageChosen", sender: self)
     }
     
@@ -52,11 +63,22 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
+    
+    //MARK: ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("ReportViewController Loaded!", terminator: "\n")
+        
+        let cameraGesture = UITapGestureRecognizer(target: self, action: #selector(openCameraButton))
+        cameraStack.addGestureRecognizer(cameraGesture)
+        
+        let libraryGesture = UITapGestureRecognizer(target: self, action: #selector(photoFromLibrary))
+        libraryStack.addGestureRecognizer(libraryGesture)
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250232A62087C14400C802F8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250232A52087C14400C802F8 /* SettingsViewController.swift */; };
 		25079EB72034A792006DFC87 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25079EB62034A792006DFC87 /* ReportViewController.swift */; };
 		25079EBB2034B103006DFC87 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25079EBA2034B103006DFC87 /* GroupsViewController.swift */; };
-		25079EBD2034B3A8006DFC87 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25079EBC2034B3A8006DFC87 /* ActivityViewController.swift */; };
 		251456262075523F0063494C /* GroupsContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251456252075523F0063494C /* GroupsContactsViewController.swift */; };
 		25145628207554560063494C /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25145627207554560063494C /* GroupsTableViewCell.swift */; };
 		25C4DC6C20598A340080C7D2 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25C4DC6A20598A340080C7D2 /* DataModel.xcdatamodeld */; };
-		25D1EA072061E48400121A15 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D1EA062061E48400121A15 /* ActivityTableViewCell.swift */; };
 		25D2D77D20473BDB00C3ADEF /* ReportCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D2D77C20473BDB00C3ADEF /* ReportCViewController.swift */; };
 		25D71CD3203471E900A97E77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D71CD2203471E900A97E77 /* AppDelegate.swift */; };
 		25D71CD5203471E900A97E77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D71CD4203471E900A97E77 /* ViewController.swift */; };
@@ -22,6 +21,8 @@
 		25D71CDD203471E900A97E77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25D71CDB203471E900A97E77 /* LaunchScreen.storyboard */; };
 		25D71CE8203471E900A97E77 /* Field_AssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D71CE7203471E900A97E77 /* Field_AssistantTests.swift */; };
 		25D71CF3203471E900A97E77 /* Field_AssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D71CF2203471E900A97E77 /* Field_AssistantUITests.swift */; };
+		25FDD2D42093E1FB00B3713D /* VerticalSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FDD2D32093E1FB00B3713D /* VerticalSegue.swift */; };
+		25FDD2D72093E6D300B3713D /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FDD2D62093E6D300B3713D /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,13 +43,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		250232A02087B82500C802F8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		250232A12087B82500C802F8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		250232A22087B83000C802F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		250232A32087B83000C802F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		250232A52087C14400C802F8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		25079EB62034A792006DFC87 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		25079EBA2034B103006DFC87 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
-		25079EBC2034B3A8006DFC87 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		251456252075523F0063494C /* GroupsContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsContactsViewController.swift; sourceTree = "<group>"; };
 		25145627207554560063494C /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		25C4DC6B20598A340080C7D2 /* FieldAssistant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FieldAssistant.xcdatamodel; sourceTree = "<group>"; };
-		25D1EA062061E48400121A15 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		25D2D77C20473BDB00C3ADEF /* ReportCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCViewController.swift; sourceTree = "<group>"; };
 		25D71CCF203471E900A97E77 /* Field Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Field Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D71CD2203471E900A97E77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 		25D71CEE203471E900A97E77 /* Field AssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Field AssistantUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D71CF2203471E900A97E77 /* Field_AssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field_AssistantUITests.swift; sourceTree = "<group>"; };
 		25D71CF4203471E900A97E77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25FDD2D32093E1FB00B3713D /* VerticalSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSegue.swift; sourceTree = "<group>"; };
+		25FDD2D62093E6D300B3713D /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250232A42087C12E00C802F8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				250232A52087C14400C802F8 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		25D2D77920473B8F00C3ADEF /* Report */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,15 +111,6 @@
 				25D2D77C20473BDB00C3ADEF /* ReportCViewController.swift */,
 			);
 			path = Report;
-			sourceTree = "<group>";
-		};
-		25D2D77A20473BA100C3ADEF /* Activity */ = {
-			isa = PBXGroup;
-			children = (
-				25079EBC2034B3A8006DFC87 /* ActivityViewController.swift */,
-				25D1EA062061E48400121A15 /* ActivityTableViewCell.swift */,
-			);
-			path = Activity;
 			sourceTree = "<group>";
 		};
 		25D2D77B20473BAB00C3ADEF /* Groups */ = {
@@ -142,8 +147,9 @@
 		25D71CD1203471E900A97E77 /* Field Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				25FDD2D52093E6B300B3713D /* Info */,
+				250232A42087C12E00C802F8 /* Settings */,
 				25D2D77B20473BAB00C3ADEF /* Groups */,
-				25D2D77A20473BA100C3ADEF /* Activity */,
 				25D2D77920473B8F00C3ADEF /* Report */,
 				25D71CD2203471E900A97E77 /* AppDelegate.swift */,
 				25D71CD4203471E900A97E77 /* ViewController.swift */,
@@ -151,6 +157,7 @@
 				25D71CD9203471E900A97E77 /* Assets.xcassets */,
 				25D71CDB203471E900A97E77 /* LaunchScreen.storyboard */,
 				25D71CDE203471E900A97E77 /* Info.plist */,
+				25FDD2D32093E1FB00B3713D /* VerticalSegue.swift */,
 			);
 			path = "Field Assistant";
 			sourceTree = "<group>";
@@ -171,6 +178,14 @@
 				25D71CF4203471E900A97E77 /* Info.plist */,
 			);
 			path = "Field AssistantUITests";
+			sourceTree = "<group>";
+		};
+		25FDD2D52093E6B300B3713D /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				25FDD2D62093E6D300B3713D /* InfoViewController.swift */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,15 +323,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				25079EBB2034B103006DFC87 /* GroupsViewController.swift in Sources */,
+				25FDD2D72093E6D300B3713D /* InfoViewController.swift in Sources */,
 				25D71CD5203471E900A97E77 /* ViewController.swift in Sources */,
 				25D71CD3203471E900A97E77 /* AppDelegate.swift in Sources */,
 				25C4DC6C20598A340080C7D2 /* DataModel.xcdatamodeld in Sources */,
 				25D2D77D20473BDB00C3ADEF /* ReportCViewController.swift in Sources */,
-				25079EBD2034B3A8006DFC87 /* ActivityViewController.swift in Sources */,
 				25079EB72034A792006DFC87 /* ReportViewController.swift in Sources */,
 				25145628207554560063494C /* GroupsTableViewCell.swift in Sources */,
-				25D1EA072061E48400121A15 /* ActivityTableViewCell.swift in Sources */,
 				251456262075523F0063494C /* GroupsContactsViewController.swift in Sources */,
+				250232A62087C14400C802F8 /* SettingsViewController.swift in Sources */,
+				25FDD2D42093E1FB00B3713D /* VerticalSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +372,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				25D71CD7203471E900A97E77 /* Base */,
+				250232A02087B82500C802F8 /* fr */,
+				250232A22087B83000C802F8 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -364,6 +382,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				25D71CDC203471E900A97E77 /* Base */,
+				250232A12087B82500C802F8 /* fr */,
+				250232A32087B83000C802F8 /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -375,6 +395,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -419,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -432,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -470,7 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -485,7 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JG22SPKQS6;
 				INFOPLIST_FILE = "Field Assistant/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "blakenelson.Field-Assistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,7 +523,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JG22SPKQS6;
 				INFOPLIST_FILE = "Field Assistant/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "blakenelson.Field-Assistant";
 				PRODUCT_NAME = "$(TARGET_NAME)";

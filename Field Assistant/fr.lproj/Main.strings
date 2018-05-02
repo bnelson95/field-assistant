@@ -1,0 +1,69 @@
+
+/* Class = "UIButton"; normalTitle = "Camera"; ObjectID = "8Yr-dX-SW2"; */
+"8Yr-dX-SW2.normalTitle" = "Camera";
+
+/* Class = "UIBarButtonItem"; title = "Report"; ObjectID = "Aez-1e-oBO"; */
+"Aez-1e-oBO.title" = "Report";
+
+/* Class = "UINavigationItem"; title = "Report"; ObjectID = "CyY-77-qb4"; */
+"CyY-77-qb4.title" = "Report";
+
+/* Class = "UIViewController"; title = "Groups"; ObjectID = "DSw-LL-2kl"; */
+"DSw-LL-2kl.title" = "Groups";
+
+/* Class = "UITextField"; text = "bnelson95@gmail.com"; ObjectID = "I4y-vg-ath"; */
+"I4y-vg-ath.text" = "bnelson95@gmail.com";
+
+/* Class = "UILabel"; text = "Location, YAY"; ObjectID = "KWt-TH-PMM"; */
+"KWt-TH-PMM.text" = "Location, YAY";
+
+/* Class = "UIViewController"; title = "Report"; ObjectID = "Kqe-4h-hhd"; */
+"Kqe-4h-hhd.title" = "Report";
+
+/* Class = "UINavigationItem"; title = "Groups"; ObjectID = "QHy-nG-UXE"; */
+"QHy-nG-UXE.title" = "Groups";
+
+/* Class = "UILabel"; text = "Group Name"; ObjectID = "Sat-Ep-ztE"; */
+"Sat-Ep-ztE.text" = "Group Name";
+
+/* Class = "UIBarButtonItem"; title = "Groups"; ObjectID = "Tsj-ka-Y9O"; */
+"Tsj-ka-Y9O.title" = "Groups";
+
+/* Class = "UILabel"; text = "Contact Email"; ObjectID = "Yzp-xW-jyO"; */
+"Yzp-xW-jyO.text" = "Contact Email";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "Z0W-Qt-BDg"; */
+"Z0W-Qt-BDg.title" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Photos"; ObjectID = "bAi-0s-vBS"; */
+"bAi-0s-vBS.normalTitle" = "Photos";
+
+/* Class = "UILabel"; text = "Default Subject"; ObjectID = "cvX-9I-lEJ"; */
+"cvX-9I-lEJ.text" = "Default Subject";
+
+/* Class = "UIBarButtonItem"; title = "Send"; ObjectID = "dWj-QA-osM"; */
+"dWj-QA-osM.title" = "Send";
+
+/* Class = "UILabel"; text = "Count"; ObjectID = "g7u-jR-nJL"; */
+"g7u-jR-nJL.text" = "Count";
+
+/* Class = "UILabel"; text = "Contact Name"; ObjectID = "gkR-Q6-A8l"; */
+"gkR-Q6-A8l.text" = "Contact Name";
+
+/* Class = "UIBarButtonItem"; title = "Send"; ObjectID = "iYl-hF-uqV"; */
+"iYl-hF-uqV.title" = "Send";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "ico-TU-fTs"; */
+"ico-TU-fTs.title" = "Settings";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "kBJ-Yb-oVS"; */
+"kBJ-Yb-oVS.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UINavigationItem"; title = "Field Assistant"; ObjectID = "qwh-MY-Xn5"; */
+"qwh-MY-Xn5.title" = "Field Assistant";
+
+/* Class = "UILabel"; text = "February 28, 2018"; ObjectID = "tS1-XP-GcF"; */
+"tS1-XP-GcF.text" = "February 28, 2018";
+
+/* Class = "UINavigationItem"; title = "Groups"; ObjectID = "u8s-1f-J60"; */
+"u8s-1f-J60.title" = "Groups";

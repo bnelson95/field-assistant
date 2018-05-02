@@ -12,9 +12,12 @@ import MessageUI
 import MapKit
 import CoreLocation
 
-class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMailComposeViewControllerDelegate {
+class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
     
-    // MARK:
+    let defaults = UserDefaults.standard
+    
+    
+    // MARK: Fields
     var pickedImage = UIImage()
     let locationManager = CLLocationManager()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -26,16 +29,25 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
     var reportLocationLon: String?
     var reportMessage: String?
     
+    
+    
     // MARK: Outlets
     @IBOutlet weak var reportImageView: UIImageView?
     @IBOutlet weak var reportDateLabel: UILabel?
     @IBOutlet weak var reportLocationLabel: UILabel?
     @IBOutlet weak var reportMessageView: UITextView?
     @IBOutlet weak var reportGroupLabel: UITextField?
+    @IBOutlet weak var reportChangeRecipientButton: UIButton?
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint?
     
     
+    
     // MARK: Actions
+    
+    @IBAction func goBack() {
+        self.navigationController?.popToRootViewController(animated: false)
+    }
+    
     @IBAction func sendReport(_ sender: Any) {
         print("Sending Report!", terminator: "\n")
         
@@ -50,12 +62,29 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
         }
     }
     
+    @IBAction func changeRecipient(_ sender: Any) {
+        print("Change/Default button pressed.", terminator: "\n")
+        if (reportChangeRecipientButton?.currentTitle == "Default") {
+            print("State is Default.", terminator: "\n")
+            reportGroupLabel?.text = defaults.object(forKey: "DefaultRecipient") as? String
+            reportMessageView?.becomeFirstResponder()
+            reportChangeRecipientButton?.setTitle("Change", for: .normal)
+        } else if (reportChangeRecipientButton?.currentTitle == "Change") {
+            print("State is Change.", terminator: "\n")
+            reportGroupLabel?.text = ""
+            reportGroupLabel?.becomeFirstResponder()
+            reportChangeRecipientButton?.setTitle("Default", for: .normal)
+        }
+    }
+    
+    
+    
+    // MARK: ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("ReportCViewController Loaded!", terminator: "\n")
-        
         
         // Image
         reportImage = pickedImage
@@ -70,10 +99,8 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
         reportImageView?.addConstraint(aspectRatioConstraint)
         
         // Date
-        reportDate = getDateTime(date: Date())
+        reportDate = Date().toString(dateFormat: (defaults.object(forKey: "DateFormat") as? String)!)
         reportDateLabel?.text = reportDate
-        
-        print(reportDateLabel?.text, terminator: "\n")
         
         // Location
         locationManager.requestAlwaysAuthorization()
@@ -82,16 +109,14 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
-            //reportLocation is updated when locationManger is called
         }
+        
+        // Group
+        self.reportGroupLabel?.text = defaults.object(forKey: "DefaultRecipient") as? String
         
         // Message
         reportMessageView?.text = ""
         reportMessageView?.becomeFirstResponder()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     
@@ -102,14 +127,15 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setSubject("Field Assistant")
+            mail.setSubject((defaults.object(forKey: "DefaultSubject") as? String)!)
             mail.setToRecipients([(reportGroupLabel?.text)!])
+            
             mail.setMessageBody(String(format: "%@\n%@\n\nhttps://www.google.com/maps/search/?api=1&query=%@,%@\n\n%@",
                                        reportDate!, reportLocationStr!, reportLocationLat!, reportLocationLon!, reportMessage!),
                                 isHTML: false)
             let imageData: NSData = UIImageJPEGRepresentation(reportImage!, 1.0)! as NSData
             mail.addAttachmentData(imageData as Data, mimeType: "image/jpeg", fileName: "imageName")
-            present(mail, animated: true)
+            present(mail, animated: false)
         } else {
             print("ERROR in sendEmail()", terminator: "\n")
         }
@@ -128,6 +154,21 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
         var keyboardSize = info[UIKeyboardFrameEndUserInfoKey] as! CGRect
         keyboardSize = (self.reportMessageView?.convert(keyboardSize, from: nil))!
         bottomConstraint?.constant = keyboardSize.size.height
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        reportGroupLabel?.delegate = self
+        reportGroupLabel?.returnKeyType = .done
+        
+        self.view.addSubview(reportGroupLabel!)
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        reportMessageView?.becomeFirstResponder()
+        return true
     }
     
     
@@ -162,29 +203,12 @@ class ReportCViewController: UIViewController, CLLocationManagerDelegate, MFMail
         }
     }
     
-    func getDateTime(date: Date) -> String {
-        let calendar = Calendar.current
-        let month = calendar.component(.month, from: date)
-        let day = calendar.component(.day, from: date)
-        let year = calendar.component(.year, from: date)
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        
-        return String(format: "%d-%d-%d %d:%d:%d", month, day, year, hour, minutes, seconds)
-    }
-}
-
-
-
-extension Date
-{
-    func toString( dateFormat format: String ) -> String
-    {
-        let dateFormatter = DateFormatter()
-        //dateFormatter.locale = NSLocale(localeIdentifier: "us") as Locale!
-        dateFormatter.dateFormat = format
-        return dateFormatter.string(from: self)
-    }
     
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }
+
+
+
